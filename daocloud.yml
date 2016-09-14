@@ -6,12 +6,12 @@ test:
     - mysql
 
   env:
-    - MYSQL_USERNAME = "u6rZLMYuyIeaoOns"
-    - MYSQL_PASSWORD = "p1ovrzIXk6MWbeEJ4"
-    - MYSQL_INSTANCE_NAME = "Kcdryfz2Y9xuCDnL"
+    - MYSQL_USERNAME = “root”
+    - MYSQL_PASSWORD = “”
+    - MYSQL_INSTANCE_NAME = “test”
 
   install:
-    - docker-php-ext-install pdo_mysql
+    - docker-php-ext-install mysqli
 
   script:
     - phpunit DBTest
