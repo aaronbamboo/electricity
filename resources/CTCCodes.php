@@ -11,7 +11,7 @@ define('DB_DSN', 'mysql:host=10.10.32.51;dbname=Kcdryfz2Y9xuCDnL');
 define('DB_USER', 'u6rZLMYuyIeaoOns');
 define('DB_PWD', 'p1ovrzIXk6MWbeEJ4');
 define('DB_NAME', 'Kcdryfz2Y9xuCDnL');
-define('DB_HOST', ’10.10.32.51’);
+define('DB_HOST', '10.10.32.51');
 
 //县市区域
 define('QY_YUECHENGQU', '越城区');
