@@ -25,7 +25,7 @@ create table ctcdb.ctc_projectplan (
     remark varchar(128),
     primary key (plan_id),
     constraint foreign key (project_id) references ctc_projectinfo(project_id)
-)
+);
 
 
 /* 测试数据 */
