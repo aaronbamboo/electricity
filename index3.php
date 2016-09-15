@@ -191,7 +191,7 @@ if (!empty($_POST)) {
                             <thead>
                                 <tr>
                                     <th data-radio="true"></th>
-                                    <th data-field="site_aera"><?= TBL_HEADER_SITE_AREA ?></th>
+                                    <th data-field="site_area"><?= TBL_HEADER_SITE_AREA ?></th>
                                     <th data-field="site_code"><?= TBL_HEADER_SITE_CODE ?></th>
                                     <th data-field="site_name"><?= TBL_HEADER_SITE_NAME ?></th>
                                     <th data-field="share_info"><?= TBL_HEADER_SHARE_INFO ?></th>
