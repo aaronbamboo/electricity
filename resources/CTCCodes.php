@@ -14,12 +14,12 @@ define('DB_NAME', 'Kcdryfz2Y9xuCDnL');
 define('DB_HOST', '10.10.32.51');
 
 //县市区域
-define('QY_YUECHENGQU', '越城区');
-define('QY_SHAOXINGXIAN', '绍兴县');
-define('QY_SHANGYUSHI', '上虞市');
-define('QY_XHUJISHI', '诸暨市');
-define('QY_SHENGZHOUSHI', '嵊州市');
-define('QY_XINCHANGXIAN', '新昌县');
+define('QY_YUECHENGQU', '越城');
+define('QY_SHAOXINGXIAN', '柯桥');
+define('QY_SHANGYUSHI', '上虞');
+define('QY_XHUJISHI', '诸暨');
+define('QY_SHENGZHOUSHI', '嵊州');
+define('QY_XINCHANGXIAN', '新昌');
 
 //工程状态：未落实，落实，开工，完工，交付
 define('STATUS_NOT_CONFIRMED', '未落实');
@@ -30,25 +30,19 @@ define('STATUS_DELIVERED', '已交付');
 
 //页面文字
 define('PAGE_COPYRIGHT','中国铁塔股份有限公司绍兴市分公司建设维护部');
-define('PAGE_SYSTEM_NAME','建设维护部综合管理系统');
+define('PAGE_SYSTEM_NAME','建设维护部电费管理系统');
 define('PAGE_NAVBAR_CURRENT_USER','当前用户：');
 define('PAGE_NAVBAR_MANAGEMENT','管理');
 define('PAGE_NAVBAR_MOD_PASSWORD', '修改密码');
 define('PAGE_NAVBAR_OTHER', '其他');
 
 //侧边栏
-define('PAGE_SITEBAR_HEADER_PROGRESS_MANAGEMENT', '进度管理');
+define('PAGE_SITEBAR_HEADER_PROGRESS_MANAGEMENT', '电费管理');
 define('PAGE_SITEBAR_SITE_UPDATE', '站点更新');
-define('PAGE_SITEBAR_DELIVER_PLAN', '交付计划');
-define('PAGE_SITEBAR_HEADER_ORDER_MANAGEMENT', '订单管理');
-define('PAGE_SITEBAR_JL_ORDER', '监理订单');
-define('PAGE_SITEBAR_SJ_ORDER', '设计订单');
-define('PAGE_SITEBAR_DK_ORDER', '地勘订单');
-define('PAGE_SITEBAR_SBAZ_ORDER', '设备安装订单');
-define('PAGE_SITEBAR_SDYR_CONTACT', '市电合同');
-define('PAGE_SITEBAR_TJ_CONTACT', '土建合同');
+define('PAGE_SITEBAR_SITE_ELEC_CHARGE', '单站电费');
+define('PAGE_SITEBAR_PROVINCE_BRANCH_REPORT', '省公司报表');
 
-//表格
+//项目表格
 define('TBL_HEADER_PROJECT_NAME', '项目名称');
 define('TBL_HEADER_PROJECT_AREA', '区域');
 define('TBL_HEADER_CONSTR_TYPE', '建设类型');
@@ -58,21 +52,32 @@ define('TBL_HEADER_LT_PC', '联通批次');
 define('TBL_HEADER_DX_PC', '电信批次');
 define('TBL_HEADER_PROJECT_STATUS', '工程状态');
 
+//基站配置表格
+define('TBL_HEADER_SITE_AREA', '区域');
+define('TBL_HEADER_SITE_CODE', '基站编号');
+define('TBL_HEADER_SITE_NAME', '基站名称');
+define('TBL_HEADER_SHARE_INFO', '共享方');
+define('TBL_HEADER_METER_USER', '电表使用方');
+define('TBL_HEADER_YD_DCLOAD', '移动直流负载');
+define('TBL_HEADER_LT_DCLOAD', '联通直流负载');
+define('TBL_HEADER_DX_DCLOAD', '电信直流负载');
+
+
 //按钮
-define('BT_PROJECT_ADD', '添加项目');
-define('BT_PROJECT_UPDATE', '更新项目');
-define('BT_PROJECT_DELETE', '删除项目');
+define('BT_SITE_ADD', '添加基站');
+define('BT_SITE_UPDATE', '更新基站');
+define('BT_SITE_DELETE', '删除基站');
 define('BT_UNIVERSE_SEARCH', '查询');
 define('BT_UNIVERSE_CLOSE', '关闭');
 define('BT_UNIVERSE_SUBMIT', '提交');
 
 //选择框
-define('SLT_AREA_YC', '越城区');
-define('SLT_AREA_KQ', '绍兴县');
-define('SLT_AREA_SY', '上虞市');
-define('SLT_AREA_ZJ', '诸暨市');
-define('SLT_AREA_SZ', '嵊州市');
-define('SLT_AREA_XC', '新昌县');
+define('SLT_AREA_YC', '越城');
+define('SLT_AREA_KQ', '柯桥');
+define('SLT_AREA_SY', '上虞');
+define('SLT_AREA_ZJ', '诸暨');
+define('SLT_AREA_SZ', '嵊州');
+define('SLT_AREA_XC', '新昌');
 
 //标签
 define('LBL_PROJECT_NAME', '项目名称');
@@ -88,10 +93,10 @@ define('LBL_DAV_CURRENT_USER', '当前用户：');
 
 
 //提示
-define('TIPS_PROJECT_INPUT', '请输入项目名称');
-define('TIPS_PLEASE_SELECT_PROJECT', '请选择项目');
+define('TIPS_SITE_INPUT', '请输入基站名称');
+define('TIPS_PLEASE_SELECT_SITE', '请选择基站');
 
 //操作结果
-define('OPER_PROJECT_UPDATE_SUCCESS', '项目更新成功');
-define('OPER_PROJECT_ADD_SUCCESS', '项目添加成功');
-define('OPER_PROJECT_DELETE_SUCCESS', '项目删除成功');
+define('OPER_SITE_UPDATE_SUCCESS', '基站信息更新成功');
+define('OPER_SITE_ADD_SUCCESS', '基站添加成功');
+define('OPER_SITE_DELETE_SUCCESS', '基站删除成功');

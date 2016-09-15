@@ -159,14 +159,8 @@ if (!empty($_POST)) {
                         <ul class="nav nav-list">
                             <li class="nav-header"><?= PAGE_SITEBAR_HEADER_PROGRESS_MANAGEMENT ?></li>
                             <li class="active"><a href="#"><?= PAGE_SITEBAR_SITE_UPDATE ?></a></li>
-                            <li><a href="#"><?= PAGE_SITEBAR_DELIVER_PLAN ?></a></li>
-                            <li class="nav-header"><?= PAGE_SITEBAR_HEADER_ORDER_MANAGEMENT ?></li>
-                            <li><a href="#"><?= PAGE_SITEBAR_JL_ORDER ?></a></li>
-                            <li><a href="#"><?= PAGE_SITEBAR_SJ_ORDER ?></a></li>
-                            <li><a href='#'><?= PAGE_SITEBAR_DK_ORDER ?></a></li>
-                            <li><a href='#'><?= PAGE_SITEBAR_SBAZ_ORDER ?></a></li>
-                            <li><a href='#'><?= PAGE_SITEBAR_SDYR_CONTACT ?></a></li>
-                            <li><a href='#'><?= PAGE_SITEBAR_TJ_CONTACT ?></a></li>
+                            <li><a href="#"><?= PAGE_SITEBAR_SITE_ELEC_CHARGE ?></a></li>
+                            <li><a href="#"><?= PAGE_SITEBAR_PROVINCE_BRANCH_REPORT ?></a></li>
                         </ul>
                     </div><!--/.well -->
                 </div><!--/span-->
@@ -180,9 +174,9 @@ if (!empty($_POST)) {
 <?= BT_UNIVERSE_SEARCH ?>
                                     </button>
                                 </span>
-                                <button id="bt_update_project" class="btn btn-default" type="button"><?= BT_PROJECT_UPDATE ?></button>
-                                <button id="bt_delete_project" class="btn btn-default" type="button"><?= BT_PROJECT_DELETE ?></button>
-                                <button id="bt_add_project" class="btn btn-primary right" type="button"><?= BT_PROJECT_ADD ?></button>
+                                <button id="bt_update_project" class="btn btn-default" type="button"><?= BT_SITE_UPDATE ?></button>
+                                <button id="bt_delete_project" class="btn btn-default" type="button"><?= BT_SITE_DELETE ?></button>
+                                <button id="bt_add_project" class="btn btn-primary right" type="button"><?= BT_SITE_ADD ?></button>
                             </div><!-- /input-group -->
                             <div hidden="true">
                                 <input type="text" id="actionType" name="actionType" value="search_project">
@@ -197,14 +191,14 @@ if (!empty($_POST)) {
                             <thead>
                                 <tr>
                                     <th data-radio="true"></th>
-                                    <th data-field="project_aera"><?= TBL_HEADER_PROJECT_AREA ?></th>
-                                    <th data-field="project_name"><?= TBL_HEADER_PROJECT_NAME ?></th>
-                                    <th data-field="constr_type"><?= TBL_HEADER_CONSTR_TYPE ?></th>
-                                    <th data-field="constr_detail"><?= TBL_HEADER_CONSTR_DETAIL ?></th>
-                                    <th data-field="yd_pc"><?= TBL_HEADER_YD_PC ?></th>
-                                    <th data-field="dx_pc"><?= TBL_HEADER_DX_PC ?></th>
-                                    <th data-field="lt_pc"><?= TBL_HEADER_LT_PC ?></th>
-                                    <th data-field="pro_status"><?= TBL_HEADER_PROJECT_STATUS ?></th>
+                                    <th data-field="project_aera"><?= TBL_HEADER_SITE_AREA ?></th>
+                                    <th data-field="project_name"><?= TBL_HEADER_SITE_CODE ?></th>
+                                    <th data-field="constr_type"><?= TBL_HEADER_SITE_NAME ?></th>
+                                    <th data-field="constr_detail"><?= TBL_HEADER_SHARE_INFO ?></th>
+                                    <th data-field="pro_status"><?= TBL_HEADER_METER_USER ?></th>
+                                    <th data-field="yd_pc"><?= TBL_HEADER_YD_DCLOAD ?></th>
+                                    <th data-field="dx_pc"><?= TBL_HEADER_LT_DCLOAD ?></th>
+                                    <th data-field="lt_pc"><?= TBL_HEADER_DX_DCLOAD ?></th>                 
                                 </tr>
                             </thead>
 <!--                            <tbody>
