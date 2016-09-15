@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 require_once './resources/CTCCodes.php';
-require_once './entities/projects.php';
+require_once './entities/sites.php';
 
 class CTCDbService extends mysqli {
 
@@ -74,35 +74,33 @@ class CTCDbService extends mysqli {
 }
 
 /**
- * 工程进度管理类
+ * 站点配置管理类
  */
-class ProjectPlanService {
+class SiteService {
     
-    public function getProjectByName($name) {
+    public function getSiteByName($name) {
           
         $dbServ = CTCDbService::getInstance();
-        $projectName = $dbServ->real_escape_string($name);
+        $siteName = $dbServ->real_escape_string($name);
 
-        $results = $dbServ->query("SELECT * FROM ctc_projectinfo WHERE project_name like '%"
-                . $projectName . "%'");
+        $results = $dbServ->query("SELECT * FROM ctc_dcload WHERE site_name like '%"
+                . $siteName . "%'");
         while ($row = mysqli_fetch_array($results)) {
-            $status = project::displayProStatusByParam($row['pro_status']);
-            $row['pro_status'] = $status;
             $list[] = $row;
         }
         return $list;
     }
     
-    public function createProject($project) {
-        if(!$project) {
-            die("无工程信息");
+    public function createSite($site) {
+        if($site) {
+            die("无站点信息");
         } else {
             $dbServ = CTCDbService::getInstance();
-            $sql = "insert into ctc_projectinfo (project_aera, project_name, project_code, site_code, constr_type,"
-                    . "constr_detail, yd_pc, dx_pc, lt_pc) values ('". $project->getProjectAera()
-                    ."','". $project->getProjectName()."','". $project->getProjectCode()."','". $project->getSiteCode()
-                    ."','". $project->getConstrType()."','". $project->getConstrDetail()
-                    ."','". $project->getYdPc()."','". $project->getLtPc()."','". $project->getDxPc(). "')";
+            $sql = "insert into ctc_dcload (site_area, site_code, site_name, share_info, meter_user, yd_dcload, lt_dcload, dx_dcload, remark) "
+                    . "values ('". $site->getSiteAera()
+                    ."','". $site->getSiteCode()."','". $site->getSiteName()."','". $site->getShareInfo()
+                    ."','". $site->getMeterUser()."',". strval($site->ydDcload())
+                    .",". strval($site->getLtDcload()) .",". strval($site->getDxDcload()) .",'". $site->getRemark(). "')";
             $dbServ->query($sql);
             if ($dbServ->errno != 0) {
                 throw new Exception($dbServ->error);
@@ -110,16 +108,17 @@ class ProjectPlanService {
         }
     }
     
-    public function updateProject($project) {
-        if(!$project) {
-            die("无工程信息");
+    public function updateProject($site) {
+        if(!$site) {
+            die("无站点信息");
         } else {
             $dbServ = CTCDbService::getInstance();
-            $sql = "update ctc_projectinfo set project_aera = '". $project->getProjectAera() . "', project_code = '"
-                    . $project->getProjectCode() . "', site_code = '" . $project->getSiteCode() . "', constr_type = '" 
-                    . $project->getConstrType() . "', constr_detail = '" . $project->getConstrDetail() . "', yd_pc = '" 
-                    . $project->getYdPc() . "', dx_pc = '" . $project->getDxPc() .  "', lt_pc = '"
-                    . $project->getLtPc() . "' where project_id = " . strval($project->getProjectId());
+            $sql = "update ctc_dcload set site_aera = '". $site->getSiteAera() . "', site_code = '"
+                    . $site->getSiteCode() . "', site_name = '" . $site->getSiteName() . "', share_info = '" 
+                    . $site->getShareInfo() . "', meter_user = '" . $site->getMeterUser() . "', yd_dcload = " 
+                    . strval($site->ydDcload()) . ", lt_dcload = " . strval($site->getLtDcload()) .  ", dx_dcload = "
+                    . strval($site->getDxDcload()) . ", remark = '"
+                    . $site->getRemark() . "' where dc_id = " . strval($site->getDcId());
             $dbServ->query($sql);
             if ($dbServ->errno != 0) {
                 throw new Exception($dbServ->error ."<br/>" . $sql);
@@ -127,12 +126,12 @@ class ProjectPlanService {
         }
     }
     
-    public function deleteProject($projectId) {
-        if($projectId <= 0) {
-            die("无工程信息");
+    public function deleteProject($dcId) {
+        if($dcId <= 0) {
+            die("无站点信息");
         } else {
             $dbServ = CTCDbService::getInstance();
-            $sql = "delete from ctc_projectinfo where project_id = " . strval($projectId);
+            $sql = "delete from ctc_dcload where dc_id = " . strval($dcId);
             $dbServ->query($sql);
             if ($dbServ->errno != 0) {
                 throw new Exception($dbServ->error ."<br/>" . $sql);

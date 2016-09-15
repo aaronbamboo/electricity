@@ -5,13 +5,13 @@ require_once 'includes/AlertTool.php';
 
 //$jsonProjects = null;
 if (!empty($_POST)) {
-    $project = new project;
-    $projectName = null;
-    $projectService = new ProjectPlanService();
-    if (htmlspecialchars($_POST['actionType']) == 'search_project') {
-        $projectName = htmlspecialchars($_POST['project_name']);
-        $projects = $projectService->getProjectByName($projectName);
-        $jsonProject = json_encode($projects);
+    $Site = new Site();
+    $sitetName = null;
+    $siteService = new SiteService();
+    if (htmlspecialchars($_POST['actionType']) == 'search_site') {
+        $siteName = htmlspecialchars($_POST['site_name']);
+        $sites = $siteService->getSiteByName($siteName);
+        $jsonSites = json_encode($sites);
     } elseif (htmlspecialchars($_POST['actionType']) == 'update_project') {
 
         $project->setProjectId(htmlspecialchars($_POST['input_project_id']));
@@ -120,8 +120,8 @@ if (!empty($_POST)) {
         <link rel="shortcut icon" href="../assets/ico/favicon.png">
         <script type="text/javascript">
             function loadData() {
-                var $table = $('#project-table');
-                $table.bootstrapTable('load', <?= $jsonProject ?>);
+                var $table = $('#site-table');
+                $table.bootstrapTable('load', <?= $jsonSites ?>);
             }
             ;
         </script>
@@ -168,37 +168,37 @@ if (!empty($_POST)) {
                     <div class="row-fluid">
                         <form class="form-inline" id="searchForm" method="post" action="index3.php">
                             <div class="input-group">
-                                <input type="text" name = "project_name" class="form-control"  placeholder="<?= TIPS_PROJECT_INPUT ?>">
+                                <input type="text" name = "site_name" class="form-control"  placeholder="<?= TIPS_SITE_INPUT ?>">
                                 <span class="">
                                     <button class="btn btn-default" type="submit">
 <?= BT_UNIVERSE_SEARCH ?>
                                     </button>
                                 </span>
-                                <button id="bt_update_project" class="btn btn-default" type="button"><?= BT_SITE_UPDATE ?></button>
-                                <button id="bt_delete_project" class="btn btn-default" type="button"><?= BT_SITE_DELETE ?></button>
-                                <button id="bt_add_project" class="btn btn-primary right" type="button"><?= BT_SITE_ADD ?></button>
+                                <button id="bt_update_site" class="btn btn-default" type="button"><?= BT_SITE_UPDATE ?></button>
+                                <button id="bt_delete_site" class="btn btn-default" type="button"><?= BT_SITE_DELETE ?></button>
+                                <button id="bt_add_site" class="btn btn-primary right" type="button"><?= BT_SITE_ADD ?></button>
                             </div><!-- /input-group -->
                             <div hidden="true">
-                                <input type="text" id="actionType" name="actionType" value="search_project">
-                                <input type="text" id="deleteProjectId" name="deleteProjectId">
+                                <input type="text" id="actionType" name="actionType" value="search_site">
+                                <input type="text" id="deleteSiteId" name="deleteSiteId">
                             </div>
                         </form>
 
                     </div>
                     <div class="row-fluid">
-                        <table class="table table-bordered" id="project-table" data-toggle="table" data-url="data.json"
+                        <table class="table table-bordered" id="site-table" data-toggle="table" data-url="data.json"
                                data-click-to-select="true" data-pagination="true" >
                             <thead>
                                 <tr>
                                     <th data-radio="true"></th>
-                                    <th data-field="project_aera"><?= TBL_HEADER_SITE_AREA ?></th>
-                                    <th data-field="project_name"><?= TBL_HEADER_SITE_CODE ?></th>
-                                    <th data-field="constr_type"><?= TBL_HEADER_SITE_NAME ?></th>
-                                    <th data-field="constr_detail"><?= TBL_HEADER_SHARE_INFO ?></th>
-                                    <th data-field="pro_status"><?= TBL_HEADER_METER_USER ?></th>
-                                    <th data-field="yd_pc"><?= TBL_HEADER_YD_DCLOAD ?></th>
-                                    <th data-field="dx_pc"><?= TBL_HEADER_LT_DCLOAD ?></th>
-                                    <th data-field="lt_pc"><?= TBL_HEADER_DX_DCLOAD ?></th>                 
+                                    <th data-field="site_aera"><?= TBL_HEADER_SITE_AREA ?></th>
+                                    <th data-field="site_code"><?= TBL_HEADER_SITE_CODE ?></th>
+                                    <th data-field="site_name"><?= TBL_HEADER_SITE_NAME ?></th>
+                                    <th data-field="share_info"><?= TBL_HEADER_SHARE_INFO ?></th>
+                                    <th data-field="meter_user"><?= TBL_HEADER_METER_USER ?></th>
+                                    <th data-field="yd_dcload"><?= TBL_HEADER_YD_DCLOAD ?></th>
+                                    <th data-field="lt_dcload"><?= TBL_HEADER_LT_DCLOAD ?></th>
+                                    <th data-field="dx_dcload"><?= TBL_HEADER_DX_DCLOAD ?></th>                 
                                 </tr>
                             </thead>
 <!--                            <tbody>
