@@ -13,7 +13,7 @@ if (!empty($_POST)) {
         $sites = $siteService->getSiteByName($siteName);
         $jsonSites = json_encode($sites);
     } elseif (htmlspecialchars($_POST['actionType']) == 'update_site') {
-
+        echo "<script> alert('". htmlspecialchars($_POST['input_dc_id']) ."') </script>";
         $site->setDcId(htmlspecialchars($_POST['input_dc_id']));
         $site->setSiteName(htmlspecialchars($_POST['input_site_name']));
         $site->setSiteAera($siteArea = htmlspecialchars($_POST['select_site_area']));
