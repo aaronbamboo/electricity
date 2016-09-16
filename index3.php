@@ -5,7 +5,7 @@ require_once 'includes/AlertTool.php';
 
 //$jsonSites = null;
 if (!empty($_POST)) {
-    $Site = new Site();
+    $site = new Site();
     $sitetName = null;
     $siteService = new SiteService();
     if (htmlspecialchars($_POST['actionType']) == 'search_site') {
