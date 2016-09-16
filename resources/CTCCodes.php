@@ -42,16 +42,6 @@ define('PAGE_SITEBAR_SITE_UPDATE', '站点更新');
 define('PAGE_SITEBAR_SITE_ELEC_CHARGE', '单站电费');
 define('PAGE_SITEBAR_PROVINCE_BRANCH_REPORT', '省公司报表');
 
-//项目表格
-define('TBL_HEADER_PROJECT_NAME', '项目名称');
-define('TBL_HEADER_PROJECT_AREA', '区域');
-define('TBL_HEADER_CONSTR_TYPE', '建设类型');
-define('TBL_HEADER_CONSTR_DETAIL', '建设方式');
-define('TBL_HEADER_YD_PC', '移动批次');
-define('TBL_HEADER_LT_PC', '联通批次');
-define('TBL_HEADER_DX_PC', '电信批次');
-define('TBL_HEADER_PROJECT_STATUS', '工程状态');
-
 //基站配置表格
 define('TBL_HEADER_SITE_AREA', '区域');
 define('TBL_HEADER_SITE_CODE', '基站编号');
@@ -61,7 +51,6 @@ define('TBL_HEADER_METER_USER', '电表使用方');
 define('TBL_HEADER_YD_DCLOAD', '移动直流负载');
 define('TBL_HEADER_LT_DCLOAD', '联通直流负载');
 define('TBL_HEADER_DX_DCLOAD', '电信直流负载');
-
 
 //按钮
 define('BT_SITE_ADD', '添加基站');
@@ -80,17 +69,35 @@ define('SLT_AREA_SZ', '嵊州');
 define('SLT_AREA_XC', '新昌');
 
 //标签
-define('LBL_PROJECT_NAME', '项目名称');
-define('LBL_PROJECT_AREA', '区域');
-define('LBL_PROJECT_CODE', '项目编号');
-define('LBL_SITE_CODE', '站点编号');
-define('LBL_CONSTR_TYPE', '建设类型');
-define('LBL_CONSTR_DETAIL', '建设方式');
-define('LBL_YD_PC', '移动批次');
-define('LBL_LT_PC', '联通批次');
-define('LBL_DX_PC', '电信批次');
+define('LBL_SITE_NAME', '基站名称');
+define('LBL_SITE_AREA', '区域');
+define('LBL_SITE_CODE', '基站编号');
+define('LBL_SITE_NAME', '基站名称');
+define('LBL_SHARE_INFO', '共享方');
+define('LBL_METER_USER', '电表使用方');
+define('LBL_YD_DCLOAD', '移动直流负载');
+define('LBL_LT_DCLOAD', '联通直流负载');
+define('LBL_DX_DCLOAD', '电信直流负载');
+define('LBL_SITE_REMARK', '备注');
 define('LBL_DAV_CURRENT_USER', '当前用户：');
 
+//电表使用方
+define('SLT_SHARE_YD', '移动');
+define('SLT_SHARE_LT', '联通');
+define('SLT_SHARE_DX', '电信');
+define('SLT_SHARE_YD_LT', '移动+联通');
+define('SLT_SHARE_YD_DX', '移动+电信');
+define('SLT_SHARE_LT_DX', '联通+电信');
+define('SLT_SHARE_YD_LT_DX', '移动+联通+电信');
+
+//电表使用方
+define('SLT_METERUSER_YD', '移动');
+define('SLT_METERUSER_LT', '联通');
+define('SLT_METERUSER_DX', '电信');
+define('SLT_METERUSER_YD_LT', '移动+联通');
+define('SLT_METERUSER_YD_DX', '移动+电信');
+define('SLT_METERUSER_LT_DX', '联通+电信');
+define('SLT_METERUSER_YD_LT_DX', '移动+联通+电信');
 
 //提示
 define('TIPS_SITE_INPUT', '请输入基站名称');

@@ -108,7 +108,7 @@ class SiteService {
         }
     }
     
-    public function updateProject($site) {
+    public function updateSite($site) {
         if(!$site) {
             die("无站点信息");
         } else {
@@ -126,7 +126,7 @@ class SiteService {
         }
     }
     
-    public function deleteProject($dcId) {
+    public function deleteSite($dcId) {
         if($dcId <= 0) {
             die("无站点信息");
         } else {

@@ -3,7 +3,7 @@ require_once 'resources/CTCCodes.php';
 require_once 'includes/CTCDbService.php';
 require_once 'includes/AlertTool.php';
 
-//$jsonProjects = null;
+//$jsonSites = null;
 if (!empty($_POST)) {
     $Site = new Site();
     $sitetName = null;
@@ -12,61 +12,61 @@ if (!empty($_POST)) {
         $siteName = htmlspecialchars($_POST['site_name']);
         $sites = $siteService->getSiteByName($siteName);
         $jsonSites = json_encode($sites);
-    } elseif (htmlspecialchars($_POST['actionType']) == 'update_project') {
+    } elseif (htmlspecialchars($_POST['actionType']) == 'update_site') {
 
-        $project->setProjectId(htmlspecialchars($_POST['input_project_id']));
-        $project->setProjectName(htmlspecialchars($_POST['input_project_name']));
-        $project->setProjectAera($projectArea = htmlspecialchars($_POST['select_project_area']));
-        $project->setProjectCode($projectCode = htmlspecialchars($_POST['input_project_code']));
-        $project->setSiteCode($siteCode = htmlspecialchars($_POST['input_site_code']));
-        $project->setConstrType($constrType = htmlspecialchars($_POST['input_constr_type']));
-        $project->setConstrDetail($constrDetail = htmlspecialchars($_POST['input_constr_detail']));
-        $project->setYdPc($ydPc = htmlspecialchars($_POST['input_yd_pc']));
-        $project->setDxPc($dxPc = htmlspecialchars($_POST['input_dx_pc']));
-        $project->setLtPc($ltPc = htmlspecialchars($_POST['input_lt_pc']));
+        $site->setDcId(htmlspecialchars($_POST['input_dc_id']));
+        $site->setSiteName(htmlspecialchars($_POST['input_site_name']));
+        $site->setSiteAera($siteArea = htmlspecialchars($_POST['select_site_area']));
+        $site->setSiteCode($siteCode = htmlspecialchars($_POST['input_site_code']));
+        $site->setRemark($remark = htmlspecialchars($_POST['input_site_remark']));
+        $site->setShareInfo($shareInfo = htmlspecialchars($_POST['select_share_info']));
+        $site->setMeterUser($meterUser = htmlspecialchars($_POST['select_meter_user']));
+        $site->setYdDcload($ydDcload = htmlspecialchars($_POST['input_yd_dcload']));
+        $site->setDxDcload($dxDcload = htmlspecialchars($_POST['input_dx_dcload']));
+        $site->setLtDcload($ltDcload = htmlspecialchars($_POST['input_lt_dcload']));
 
         try {
-            $projectService->updateProject($project);
-//            $projectName = $project->getProjectName();
+            $siteService->updateSite($site);
+//            $siteName = $site->getSiteName();
         } catch (Exception $ex) {
             $alertMessage = new AlertMessager($ex->getMessage(), 1);
             $alertMessage->alertMessage();
             return;
         }
-//        echo "<script> alert('". $project->getProjectName() . "：" .OPER_PROJECT_UPDATE_SUCCESS  ."') </script>";
-    } elseif (htmlspecialchars($_POST['actionType']) == 'add_project') {
-        $project = new project();
-//        $project->setProjectId(htmlspecialchars($_POST['input_project_id']));
-        $project->setProjectName(htmlspecialchars($_POST['input_project_name_add']));
-        $project->setProjectAera($projectArea = htmlspecialchars($_POST['select_project_area_add']));
-        $project->setProjectCode($projectCode = htmlspecialchars($_POST['input_project_code_add']));
-        $project->setSiteCode($siteCode = htmlspecialchars($_POST['input_site_code_add']));
-        $project->setConstrType($constrType = htmlspecialchars($_POST['input_constr_type_add']));
-        $project->setConstrDetail($constrDetail = htmlspecialchars($_POST['input_constr_detail_add']));
-        $project->setYdPc($ydPc = htmlspecialchars($_POST['input_yd_pc_add']));
-        $project->setDxPc($dxPc = htmlspecialchars($_POST['input_dx_pc_add']));
-        $project->setLtPc($ltPc = htmlspecialchars($_POST['input_lt_pc_add']));
+//        echo "<script> alert('". $site->getSiteName() . "：" .OPER_SITE_UPDATE_SUCCESS  ."') </script>";
+    } elseif (htmlspecialchars($_POST['actionType']) == 'add_site') {
+        $site = new Site();
+//        $site->setDcId(htmlspecialchars($_POST['input_dc_id']));
+        $site->setSiteName(htmlspecialchars($_POST['input_site_name_add']));
+        $site->setSiteAera($siteArea = htmlspecialchars($_POST['select_site_area_add']));
+        $site->setSiteCode($siteCode = htmlspecialchars($_POST['input_site_code_add']));
+        $site->setRemark($remark = htmlspecialchars($_POST['input_site_remark_add']));
+        $site->setShareInfo($shareInfo = htmlspecialchars($_POST['select_share_info_add']));
+        $site->setMeterUser($meterUser = htmlspecialchars($_POST['select_meter_user_add']));
+        $site->setYdDcload($ydDcload = htmlspecialchars($_POST['input_yd_dcload_add']));
+        $site->setDxDcload($dxDcload = htmlspecialchars($_POST['input_dx_dcload_add']));
+        $site->setLtDcload($ltDcload = htmlspecialchars($_POST['input_lt_dcload_add']));
         try {
-            $projectService->createProject($project);
-//            $projectName = $project->getProjectName();
+            $siteService->createSite($site);
+//            $siteName = $site->getSiteName();
         } catch (Exception $ex) {
             $alertMessage = new AlertMessager($ex->getMessage(), 1);
             $alertMessage->alertMessage();
             return;
         }
-        echo "<script> alert('" . $project->getProjectName() . "：" . OPER_PROJECT_ADD_SUCCESS . "') </script>";
-    } elseif (htmlspecialchars($_POST['actionType']) == 'delete_project') {
-        $projectId = htmlspecialchars($_POST['deleteProjectId']);
+        echo "<script> alert('" . $site->getSiteName() . "：" . OPER_SITE_ADD_SUCCESS . "') </script>";
+    } elseif (htmlspecialchars($_POST['actionType']) == 'delete_site') {
+        $dcId = htmlspecialchars($_POST['deleteSiteId']);
         try {
-            $projectService->deleteProject($projectId);
+            $siteService->deleteSite($dcId);
         } catch (Exception $ex) {
             $alertMessage = new AlertMessager($ex->getMessage(), 1);
             $alertMessage->alertMessage();
             return;
         }
-        echo "<script> alert('" . htmlspecialchars($_POST['project_name']) . "：" . OPER_PROJECT_DELETE_SUCCESS . "') </script>";
+        echo "<script> alert('" . htmlspecialchars($_POST['site_name']) . "：" . OPER_SITE_DELETE_SUCCESS . "') </script>";
     } else {
-        $projectName = null;
+        $siteName = null;
     }
 }
 ?>
@@ -248,21 +248,15 @@ if (!empty($_POST)) {
                             &times;
                         </button>
                         <h4 class="modal-title" id="myModalLabel_update">
-<?= BT_PROJECT_UPDATE ?>
+<?= BT_SITE_UPDATE ?>
                         </h4>
                     </div>
                     <div class="modal-body">
                         <form class="form-horizontal" method="post" action="index3.php" id="updateForm">
                             <div class="control-group">
-                                <label class="control-label" for="input_project_name"><?= LBL_PROJECT_NAME ?></label>
+                                <label class="control-label" for="select_site_area"><?= LBL_SITE_AREA ?></label>
                                 <div class="controls">
-                                    <input id="input_project_name" type="text" readonly="true" name="input_project_name">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label" for="select_project_area"><?= LBL_PROJECT_AREA ?></label>
-                                <div class="controls">
-                                    <select  id="select_project_area" name="select_project_area">
+                                    <select  id="select_site_area" name="select_site_area">
                                          <option value="<?=SLT_AREA_YC?>"><?=SLT_AREA_YC?></option>
                                         <option value="<?=SLT_AREA_KQ?>"><?=SLT_AREA_KQ?></option>
                                         <option value="<?=SLT_AREA_SY?>"><?=SLT_AREA_SY?></option>
@@ -273,50 +267,72 @@ if (!empty($_POST)) {
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="input_project_code"><?=LBL_PROJECT_CODE?></label>
-                                <div class="controls">
-                                    <input id="input_project_code" name="input_project_code" type="text">
-                                </div>
-                            </div>
-                            <div class="control-group">
                                 <label class="control-label" for="input_site_code"><?=LBL_SITE_CODE?></label>
                                 <div class="controls">
                                     <input id="input_site_code" name="input_site_code" type="text">
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="input_constr_type"><?=LBL_CONSTR_TYPE?></label>
+                                <label class="control-label" for="input_site_name"><?=LBL_SITE_NAME?></label>
                                 <div class="controls">
-                                    <input id="input_constr_type" name="input_constr_type" type="text">
+                                    <input id="input_site_name" name="input_site_name" type="text">
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="input_constr_detail"><?=LBL_CONSTR_DETAIL?></label>
+                                <label class="control-label" for="select_share_info"><?=LBL_SHARE_INFO?></label>
                                 <div class="controls">
-                                    <input id="input_constr_detail" name="input_constr_detail" type="text">
+                                    <select  id="select_share_info" name="select_share_info">
+                                        <option value="<?=SLT_SHARE_YD?>"><?=SLT_SHARE_YD?></option>
+                                        <option value="<?=SLT_SHARE_LT?>"><?=SLT_SHARE_LT?></option>
+                                        <option value="<?=SLT_SHARE_DX?>"><?=SLT_SHARE_DX?></option>
+                                        <option value="<?=SLT_SHARE_YD_LT?>"><?=SLT_SHARE_YD_LT?></option>
+                                        <option value="<?=SLT_SHARE_YD_DX?>"><?=SLT_SHARE_YD_DX?></option>
+                                        <option value="<?=SLT_SHARE_LT_DX?>"><?=SLT_SHARE_LT_DX?></option>
+                                        <option value="<?=SLT_SHARE_YD_LT_DX?>"><?=SLT_SHARE_YD_LT_DX?></option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="input_yd_pc"><?=LBL_YD_PC?></label>
+                                <label class="control-label" for="select_meter_user"><?=LBL_METER_USER?></label>
                                 <div class="controls">
-                                    <input type="text" id="input_yd_pc" name="input_yd_pc">
+                                     <select  id="select_meter_user" name="select_meter_user">
+                                        <option value="<?=SLT_METERUSER_YD?>"><?=SLT_METERUSER_YD?></option>
+                                        <option value="<?=SLT_METERUSER_LT?>"><?=SLT_METERUSER_LT?></option>
+                                        <option value="<?=SLT_METERUSER_DX?>"><?=SLT_METERUSER_DX?></option>
+                                        <option value="<?=SLT_METERUSER_YD_LT?>"><?=SLT_METERUSER_YD_LT?></option>
+                                        <option value="<?=SLT_METERUSER_YD_DX?>"><?=SLT_METERUSER_YD_DX?></option>
+                                        <option value="<?=SLT_METERUSER_LT_DX?>"><?=SLT_METERUSER_LT_DX?></option>
+                                        <option value="<?=SLT_METERUSER_YD_LT_DX?>"><?=SLT_METERUSER_YD_LT_DX?></option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="input_dx_pc" ><?=LBL_DX_PC?></label>
+                                <label class="control-label" for="input_yd_dcload"><?=LBL_YD_DCLOAD?></label>
                                 <div class="controls">
-                                    <input type="text" id="input_dx_pc" name="input_dx_pc">
+                                    <input type="text" id="input_yd_dcload" name="input_yd_dcload">
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="input_lt_pc"><?=LBL_LT_PC?></label>
+                                <label class="control-label" for="input_lt_dcload" ><?=LBL_LT_DCLOAD?></label>
                                 <div class="controls">
-                                    <input type="text" id="input_lt_pc" name="input_lt_pc">
+                                    <input type="text" id="input_lt_dcload" name="input_lt_dcload">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="input_dx_dcload"><?=LBL_DX_DCLOAD?></label>
+                                <div class="controls">
+                                    <input type="text" id="input_dx_dcload" name="input_dx_dcload">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="input_site_remark"><?=LBL_SITE_REMARK?></label>
+                                <div class="controls">
+                                    <input type="text" id="input_site_remark" name="input_site_remark">
                                 </div>
                             </div>
                             <div  hidden="true">
-                                <input type="text" id="input_project_id" name="input_project_id" hidden="true">
-                                <input type="text" id="actionType" name="actionType" value="update_project">
+                                <input type="text" id="input_dc_id" name="input_dc_id" hidden="true">
+                                <input type="text" id="actionType" name="actionType" value="update_site">
                             </div>
                         </form>
 
@@ -344,21 +360,16 @@ if (!empty($_POST)) {
                             &times;
                         </button>
                         <h4 class="modal-title" id="myModalLabel_add">
-<?= BT_PROJECT_ADD ?>
+<?= BT_SITE_ADD ?>
                         </h4>
                     </div>
                     <div class="modal-body">
                         <form class="form-horizontal" method="post" action="index3.php" id="addForm">
+                            
                             <div class="control-group">
-                                <label class="control-label" for="input_project_name_add"><?= LBL_PROJECT_NAME ?></label>
+                                <label class="control-label" for="select_site_area_add"><?= LBL_SITE_AREA ?></label>
                                 <div class="controls">
-                                    <input id="input_project_name" type="text" name="input_project_name_add">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label" for="select_project_area_add"><?= LBL_PROJECT_AREA ?></label>
-                                <div class="controls">
-                                    <select  id="select_project_area_add" name="select_project_area_add">
+                                    <select  id="select_site_area_add" name="select_site_area_add">
                                         <option value="<?=SLT_AREA_YC?>"><?=SLT_AREA_YC?></option>
                                         <option value="<?=SLT_AREA_KQ?>"><?=SLT_AREA_KQ?></option>
                                         <option value="<?=SLT_AREA_SY?>"><?=SLT_AREA_SY?></option>
@@ -369,50 +380,72 @@ if (!empty($_POST)) {
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="input_project_code_add"><?=LBL_PROJECT_CODE?></label>
-                                <div class="controls">
-                                    <input id="input_project_code_add" name="input_project_code_add" type="text">
-                                </div>
-                            </div>
-                            <div class="control-group">
                                 <label class="control-label" for="input_site_code_add"><?=LBL_SITE_CODE?></label>
                                 <div class="controls">
                                     <input id="input_site_code_add" name="input_site_code_add" type="text">
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="input_constr_type_add"><?=LBL_CONSTR_TYPE?></label>
+                                <label class="control-label" for="input_site_name_add"><?= LBL_SITE_NAME ?></label>
                                 <div class="controls">
-                                    <input id="input_constr_type_add" name="input_constr_type_add" type="text">
+                                    <input id="input_site_name" type="text" name="input_site_name_add">
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="input_constr_detail_add"><?=LBL_CONSTR_DETAIL?></label>
+                                <label class="control-label" for="select_share_info_add"><?=LBL_SHARE_INFO?></label>
                                 <div class="controls">
-                                    <input id="input_constr_detail_add" name="input_constr_detail_add" type="text">
+                                    <select  id="select_share_info_add" name="select_share_info_add">
+                                        <option value="<?=SLT_SHARE_YD?>"><?=SLT_SHARE_YD?></option>
+                                        <option value="<?=SLT_SHARE_LT?>"><?=SLT_SHARE_LT?></option>
+                                        <option value="<?=SLT_SHARE_DX?>"><?=SLT_SHARE_DX?></option>
+                                        <option value="<?=SLT_SHARE_YD_LT?>"><?=SLT_SHARE_YD_LT?></option>
+                                        <option value="<?=SLT_SHARE_YD_DX?>"><?=SLT_SHARE_YD_DX?></option>
+                                        <option value="<?=SLT_SHARE_LT_DX?>"><?=SLT_SHARE_LT_DX?></option>
+                                        <option value="<?=SLT_SHARE_YD_LT_DX?>"><?=SLT_SHARE_YD_LT_DX?></option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="input_yd_pc_add"><?=LBL_YD_PC?></label>
+                                <label class="control-label" for="select_meter_user_add"><?=LBL_METER_USER?></label>
                                 <div class="controls">
-                                    <input type="text" id="input_yd_pc_add" name="input_yd_pc_add">
+                                     <select  id="select_meter_user_add" name="select_meter_user_add">
+                                        <option value="<?=SLT_METERUSER_YD?>"><?=SLT_METERUSER_YD?></option>
+                                        <option value="<?=SLT_METERUSER_LT?>"><?=SLT_METERUSER_LT?></option>
+                                        <option value="<?=SLT_METERUSER_DX?>"><?=SLT_METERUSER_DX?></option>
+                                        <option value="<?=SLT_METERUSER_YD_LT?>"><?=SLT_METERUSER_YD_LT?></option>
+                                        <option value="<?=SLT_METERUSER_YD_DX?>"><?=SLT_METERUSER_YD_DX?></option>
+                                        <option value="<?=SLT_METERUSER_LT_DX?>"><?=SLT_METERUSER_LT_DX?></option>
+                                        <option value="<?=SLT_METERUSER_YD_LT_DX?>"><?=SLT_METERUSER_YD_LT_DX?></option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="input_dx_pc_add" ><?=LBL_DX_PC?></label>
+                                <label class="control-label" for="input_yd_dcload_add"><?=LBL_YD_DCLOAD?></label>
                                 <div class="controls">
-                                    <input type="text" id="input_dx_pc_add" name="input_dx_pc_add">
+                                    <input type="text" id="input_yd_dcload_add" name="input_yd_dcload_add">
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label" for="input_lt_pc_add"><?=LBL_LT_PC?></label>
+                                <label class="control-label" for="input_lt_dcload_add" ><?=LBL_LT_DCLOAD?></label>
                                 <div class="controls">
-                                    <input type="text" id="input_lt_pc_add" name="input_lt_pc_add">
+                                    <input type="text" id="input_lt_dcload_add" name="input_lt_dcload_add">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="input_dx_dcload_add"><?=LBL_DX_DCLOAD?></label>
+                                <div class="controls">
+                                    <input type="text" id="input_dx_dcload_add" name="input_dx_dcload_add">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="input_site_remark_add"><?=LBL_SITE_REMARK?></label>
+                                <div class="controls">
+                                    <input type="text" id="input_site_remark_add" name="input_site_remark_add">
                                 </div>
                             </div>
                             <div  hidden="true">
-                                <input type="text" id="input_project_id_add" name="input_project_id_add" hidden="true">
-                                <input type="text" id="actionType" name="actionType" value="add_project">
+                                <input type="text" id="input_dc_id_add" name="input_dc_id_add" hidden="true">
+                                <input type="text" id="actionType" name="actionType" value="add_site">
                             </div>
                         </form>
 
@@ -439,31 +472,31 @@ if (!empty($_POST)) {
         <script src="./bootstrap-table/bootstrap-table.js"></script>
 
         <script>
-        var $table = $('#project-table'),
-                $updateButton = $('#bt_update_project');
-        var $addButton = $('#bt_add_project');
-        var $deleleButton = $('#bt_delete_project');
+        var $table = $('#site-table'),
+                $updateButton = $('#bt_update_site');
+        var $addButton = $('#bt_add_site');
+        var $deleleButton = $('#bt_delete_site');
         var $updateSubButton = $('#bt_update_submit');
         var $addSubButton = $('#bt_add_submit');
         $(function () {
             $updateButton.click(function () {
                 var selectRow = $table.bootstrapTable('getSelections');
                 if (selectRow.length < 1) {
-                    alert("<?= TIPS_PLEASE_SELECT_PROJECT ?>");
+                    alert("<?= TIPS_PLEASE_SELECT_SITE ?>");
                     return;
                 }
 
                 // 模态框赋值
-                $('#input_project_name').val(selectRow[0]['project_name']);
-                $('#select_project_area').val(selectRow[0]['project_aera']);
-                $('#input_project_code').val(selectRow[0]['project_code']);
+                $('#input_site_name').val(selectRow[0]['site_name']);
+                $('#select_site_area').val(selectRow[0]['site_aera']);
                 $('#input_site_code').val(selectRow[0]['site_code']);
-                $('#input_constr_type').val(selectRow[0]['constr_type']);
-                $('#input_constr_detail').val(selectRow[0]['constr_detail']);
-                $('#input_yd_pc').val(selectRow[0]['yd_pc']);
-                $('#input_dx_pc').val(selectRow[0]['dx_pc']);
-                $('#input_lt_pc').val(selectRow[0]['lt_pc']);
-                $('#input_project_id').val(selectRow[0]['project_id']);
+                $('#select_share_info').val(selectRow[0]['share_info']);
+                $('#select_meter_user').val(selectRow[0]['meter_user']);
+                $('#input_site_remark').val(selectRow[0]['remark']);
+                $('#input_yd_dcload').val(selectRow[0]['yd_dcload']);
+                $('#input_dx_dcload').val(selectRow[0]['dx_dcload']);
+                $('#input_lt_dcload').val(selectRow[0]['lt_dcload']);
+                $('#input_dc_id').val(selectRow[0]['dc_id']);
 
                 $('#myModal_update').modal('show');
             });
@@ -475,12 +508,12 @@ if (!empty($_POST)) {
             $deleleButton.click(function () {
                 var selectRow = $table.bootstrapTable('getSelections');
                 if (selectRow.length < 1) {
-                    alert("<?= TIPS_PLEASE_SELECT_PROJECT ?>");
+                    alert("<?= TIPS_PLEASE_SELECT_SITE ?>");
                     return;
                 }
-                $('#deleteProjectId').val(selectRow[0]['project_id']);
-                $('#project_name').val(selectRow[0]['project_name']);
-                $('#actionType').val('delete_project');
+                $('#deleteSiteId').val(selectRow[0]['dc_id']);
+                $('#site_name').val(selectRow[0]['site_name']);
+                $('#actionType').val('delete_site');
                 $('#searchForm').submit();
             });
 
