@@ -99,7 +99,7 @@ class SiteService {
             $sql = "insert into ctc_dcload (site_area, site_code, site_name, share_info, meter_user, yd_dcload, lt_dcload, dx_dcload, remark) "
                     . "values ('". $site->getSiteAera()
                     ."','". $site->getSiteCode()."','". $site->getSiteName()."','". $site->getShareInfo()
-                    ."','". $site->getMeterUser()."',". strval($site->ydDcload())
+                    ."','". $site->getMeterUser()."',". strval($site->getYdDcload())
                     .",". strval($site->getLtDcload()) .",". strval($site->getDxDcload()) .",'". $site->getRemark(). "')";
             $dbServ->query($sql);
             if ($dbServ->errno != 0) {
@@ -116,7 +116,7 @@ class SiteService {
             $sql = "update ctc_dcload set site_aera = '". $site->getSiteAera() . "', site_code = '"
                     . $site->getSiteCode() . "', site_name = '" . $site->getSiteName() . "', share_info = '" 
                     . $site->getShareInfo() . "', meter_user = '" . $site->getMeterUser() . "', yd_dcload = " 
-                    . strval($site->ydDcload()) . ", lt_dcload = " . strval($site->getLtDcload()) .  ", dx_dcload = "
+                    . strval($site->getYdDcload()) . ", lt_dcload = " . strval($site->getLtDcload()) .  ", dx_dcload = "
                     . strval($site->getDxDcload()) . ", remark = '"
                     . $site->getRemark() . "' where dc_id = " . strval($site->getDcId());
             $dbServ->query($sql);
