@@ -13,7 +13,7 @@
  */
 class Site {
     public $dcId;
-    public $siteAera; 
+    public $siteArea; 
     public $siteCode;
     public $siteName;
     public $shareInfo;
@@ -27,8 +27,8 @@ class Site {
         return $this->dcId;
     }
 
-    public function getSiteAera() {
-        return $this->siteAera;
+    public function getSiteArea() {
+        return $this->siteArea;
     }
 
     public function getSiteCode() {
@@ -67,8 +67,8 @@ class Site {
         $this->dcId = $dcId;
     }
 
-    public function setSiteAera($siteAera) {
-        $this->siteAera = $siteAera;
+    public function setSiteArea($siteArea) {
+        $this->siteArea = $siteArea;
     }
 
     public function setSiteCode($siteCode) {

@@ -16,7 +16,7 @@ if (!empty($_POST)) {
         //echo "<script> alert('". htmlspecialchars($_POST['input_dc_id']) ."') </script>";
         $site->setDcId(intval($_POST['input_dc_id']));
         $site->setSiteName(htmlspecialchars($_POST['input_site_name']));
-        $site->setSiteAera($siteArea = htmlspecialchars($_POST['select_site_area']));
+        $site->setSiteArea($siteArea = htmlspecialchars($_POST['select_site_area']));
         $site->setSiteCode($siteCode = htmlspecialchars($_POST['input_site_code']));
         $site->setRemark($remark = htmlspecialchars($_POST['input_site_remark']));
         $site->setShareInfo($shareInfo = htmlspecialchars($_POST['select_share_info']));
@@ -38,7 +38,7 @@ if (!empty($_POST)) {
         $site = new Site();
 //        $site->setDcId(htmlspecialchars($_POST['input_dc_id']));
         $site->setSiteName(htmlspecialchars($_POST['input_site_name_add']));
-        $site->setSiteAera($siteArea = htmlspecialchars($_POST['select_site_area_add']));
+        $site->setSiteArea($siteArea = htmlspecialchars($_POST['select_site_area_add']));
         $site->setSiteCode($siteCode = htmlspecialchars($_POST['input_site_code_add']));
         $site->setRemark($remark = htmlspecialchars($_POST['input_site_remark_add']));
         $site->setShareInfo($shareInfo = htmlspecialchars($_POST['select_share_info_add']));
@@ -488,7 +488,7 @@ if (!empty($_POST)) {
 
                 // 模态框赋值
                 $('#input_site_name').val(selectRow[0]['site_name']);
-                $('#select_site_area').val(selectRow[0]['site_aera']);
+                $('#select_site_area').val(selectRow[0]['site_area']);
                 $('#input_site_code').val(selectRow[0]['site_code']);
                 $('#select_share_info').val(selectRow[0]['share_info']);
                 $('#select_meter_user').val(selectRow[0]['meter_user']);

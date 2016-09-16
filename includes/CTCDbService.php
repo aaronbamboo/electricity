@@ -97,7 +97,7 @@ class SiteService {
         } else {
             $dbServ = CTCDbService::getInstance();
             $sql = "insert into ctc_dcload (site_area, site_code, site_name, share_info, meter_user, yd_dcload, lt_dcload, dx_dcload, remark) "
-                    . "values ('". $site->getSiteAera()
+                    . "values ('". $site->getSiteArea()
                     ."','". $site->getSiteCode()."','". $site->getSiteName()."','". $site->getShareInfo()
                     ."','". $site->getMeterUser()."',". strval($site->getYdDcload())
                     .",". strval($site->getLtDcload()) .",". strval($site->getDxDcload()) .",'". $site->getRemark(). "')";
@@ -113,7 +113,7 @@ class SiteService {
             die("无站点信息");
         } else {
             $dbServ = CTCDbService::getInstance();
-            $sql = "update ctc_dcload set site_aera = '". $site->getSiteAera() . "', site_code = '"
+            $sql = "update ctc_dcload set site_area = '". $site->getSiteArea() . "', site_code = '"
                     . $site->getSiteCode() . "', site_name = '" . $site->getSiteName() . "', share_info = '" 
                     . $site->getShareInfo() . "', meter_user = '" . $site->getMeterUser() . "', yd_dcload = " 
                     . strval($site->getYdDcload()) . ", lt_dcload = " . strval($site->getLtDcload()) .  ", dx_dcload = "
