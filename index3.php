@@ -35,7 +35,7 @@ if (!empty($_POST)) {
         }
 //        echo "<script> alert('". $site->getSiteName() . "：" .OPER_SITE_UPDATE_SUCCESS  ."') </script>";
     } elseif (htmlspecialchars($_POST['actionType']) == 'add_site') {
-        $site = new Site();
+        //$site = new Site();
 //        $site->setDcId(htmlspecialchars($_POST['input_dc_id']));
         $site->setSiteName(htmlspecialchars($_POST['input_site_name_add']));
         $site->setSiteArea($siteArea = htmlspecialchars($_POST['select_site_area_add']));
