@@ -92,7 +92,7 @@ class SiteService {
     }
     
     public function createSite($site) {
-        if($site) {
+        if(!$site) {
             die("无站点信息");
         } else {
             $dbServ = CTCDbService::getInstance();
