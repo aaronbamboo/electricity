@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3a52b68e-14aa-4a80-8b98-093d1fc8abd5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/ExcelTool.php" afterPath="$PROJECT_DIR$/includes/ExcelTool.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index3.php" afterPath="$PROJECT_DIR$/index3.php" />
     </list>
     <list id="0eee7265-2b3c-4f0c-8834-b63a16ef6b98" name="Failed commit: Default" comment="modify createSite" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="index3.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index3.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+            <state relative-caret-position="105">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -237,7 +236,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1475042699975</updated>
-      <workItem from="1475042701812" duration="6797000" />
+      <workItem from="1475042701812" duration="7247000" />
     </task>
     <task id="LOCAL-00001" summary="add excel output test">
       <created>1475051797107</created>
@@ -267,11 +266,18 @@
       <option name="project" value="LOCAL" />
       <updated>1475055185313</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add excel output test">
+      <created>1475055777805</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1475055777805</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6797000" />
+    <option name="totallyTimeSpent" value="7247000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="39" y="23" width="1241" height="777" extended-state="6" />
@@ -360,8 +366,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index3.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        <state relative-caret-position="105">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>

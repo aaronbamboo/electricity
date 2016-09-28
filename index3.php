@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set('Asia/Shanghai');
+
 require_once 'resources/CTCCodes.php';
 require_once 'includes/CTCDbService.php';
 require_once 'includes/AlertTool.php';
