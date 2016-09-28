@@ -16,7 +16,6 @@ if (!empty($_POST)) {
         $sites = $siteService->getSiteByName($siteName);
         $jsonSites = json_encode($sites);
     } elseif (htmlspecialchars($_POST['actionType']) == 'output_site') {
-        echo "<script> alert('". 'output excel ...'  ."') </script>";
         $excelTool = new ExcelTool();
         $excelTool->outputExcel();
     }
