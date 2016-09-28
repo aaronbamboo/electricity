@@ -18,7 +18,7 @@ class ExcelTool
         //创建对象
         $excel = new PHPExcel();
         //Excel表格式,这里简略写了8列
-        $letter = array('A', 'B', 'C', 'D', 'E', 'F', 'F', 'G', 'H', 'I');
+        $letter = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I');
         //表头数组
         $tableheader = array('区域', '基站编号', '基站名称', '共享方', '电表使用方', '移动直流负载', '联通直流负载',
             '电信直流负载', '备注');
