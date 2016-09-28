@@ -2,6 +2,7 @@
 require_once 'resources/CTCCodes.php';
 require_once 'includes/CTCDbService.php';
 require_once 'includes/AlertTool.php';
+require_once 'includes/ExcelTool.php';
 
 //$jsonSites = null;
 if (!empty($_POST)) {
@@ -14,8 +15,8 @@ if (!empty($_POST)) {
         $jsonSites = json_encode($sites);
     } elseif (htmlspecialchars($_POST['actionType']) == 'output_site') {
         echo "<script> alert('". 'output excel ...'  ."') </script>";
-        $excelTools = new ExcelTools();
-        $excelTools->outputExcel();
+        $excelTool = new ExcelTool();
+        $excelTool->outputExcel();
     }
     elseif (htmlspecialchars($_POST['actionType']) == 'update_site') {
         //echo "<script> alert('". htmlspecialchars($_POST['input_dc_id']) ."') </script>";

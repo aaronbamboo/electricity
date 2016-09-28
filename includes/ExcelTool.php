@@ -9,7 +9,7 @@
  */
 require_once 'PHPExcel/Classes/PHPExcel.php';
 
-class ExcelTools
+class ExcelTool
 {
 
     public function outputExcel()
