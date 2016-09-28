@@ -535,7 +535,7 @@ if (!empty($_POST)) {
                 $('#addForm').submit();
             });
 
-            $outputButton.click()function () {
+            $outputButton.click(function () {
                 $('#actionType').val('output_site');
                 $('#searchForm').submit();
             });
