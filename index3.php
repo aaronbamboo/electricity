@@ -12,7 +12,11 @@ if (!empty($_POST)) {
         $siteName = htmlspecialchars($_POST['site_name']);
         $sites = $siteService->getSiteByName($siteName);
         $jsonSites = json_encode($sites);
-    } elseif (htmlspecialchars($_POST['actionType']) == 'update_site') {
+    } elseif (htmlspecialchars($_POST['actionType']) == 'output_site') {
+        $excelTools = new ExcelTools();
+        $excelTools->outputExcel();
+    }
+    elseif (htmlspecialchars($_POST['actionType']) == 'update_site') {
         //echo "<script> alert('". htmlspecialchars($_POST['input_dc_id']) ."') </script>";
         $site->setDcId(intval($_POST['input_dc_id']));
         $site->setSiteName(htmlspecialchars($_POST['input_site_name']));
@@ -177,6 +181,7 @@ if (!empty($_POST)) {
                                 <button id="bt_update_site" class="btn btn-default" type="button"><?= BT_SITE_UPDATE ?></button>
                                 <button id="bt_delete_site" class="btn btn-default" type="button"><?= BT_SITE_DELETE ?></button>
                                 <button id="bt_add_site" class="btn btn-primary right" type="button"><?= BT_SITE_ADD ?></button>
+                                <button id="bt_output_site" class="btn btn-primary right" type="button"><?= BT_SITE_OUTPUT ?></button>
                             </div><!-- /input-group -->
                             <div hidden="true">
                                 <input type="text" id="actionType" name="actionType" value="search_site">
@@ -478,6 +483,9 @@ if (!empty($_POST)) {
         var $deleleButton = $('#bt_delete_site');
         var $updateSubButton = $('#bt_update_submit');
         var $addSubButton = $('#bt_add_submit');
+
+        var $outputButton = $('#bt_output_site');
+
         $(function () {
             $updateButton.click(function () {
                 var selectRow = $table.bootstrapTable('getSelections');
@@ -524,6 +532,11 @@ if (!empty($_POST)) {
 
             $addSubButton.click(function () {
                 $('#addForm').submit();
+            });
+
+            $outputButton.click()function () {
+                $('#actionType').val('output_site');
+                $('#searchForm').submit();
             });
         });
         </script> 

@@ -59,6 +59,7 @@ define('BT_SITE_DELETE', '删除基站');
 define('BT_UNIVERSE_SEARCH', '查询');
 define('BT_UNIVERSE_CLOSE', '关闭');
 define('BT_UNIVERSE_SUBMIT', '提交');
+define('BT_SITE_OUTPUT', '导出');
 
 //选择框
 define('SLT_AREA_YC', '越城');
