@@ -7,6 +7,8 @@
  * Time: 下午3:15
  * Function: Excel操作类
  */
+require_once 'PHPExcel/Classes/PHPExcel.php';
+
 class ExcelTools
 {
 
