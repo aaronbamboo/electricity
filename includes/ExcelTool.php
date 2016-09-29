@@ -20,6 +20,8 @@ class ExcelTool
             return;
         }
 
+        echo "<script> alert('". var_dump($data)   ."') </script>";
+
         //创建对象
         $excel = new PHPExcel();
         //表头列序号
@@ -43,7 +45,7 @@ class ExcelTool
         for ($i = 2; $i <= count($data) + 1; $i++) {
             $j = 0;
             foreach ($data[$i - 2] as $key => $value) {
-                echo "<script> alert('". $value   ."') </script>";
+
                 $excel->getActiveSheet()->setCellValue($letter[$j].$i, strval($value));
                 $j++;
             }
