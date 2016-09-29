@@ -15,6 +15,8 @@ class ExcelTool
     public function outputExcel($datas)
     {
         if(!$datas) {
+
+            echo "<script> alert('". WARN_DATA_IS_NULL . ALERT_STYLE_WARNING ."') </script>";
             $message = new AlertMessager(WARN_DATA_IS_NULL, ALERT_STYLE_WARNING);
             return;
         }
