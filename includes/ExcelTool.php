@@ -43,6 +43,7 @@ class ExcelTool
         for ($i = 2; $i <= count($data) + 1; $i++) {
             $j = 0;
             foreach ($data[$i - 2] as $key => $value) {
+                echo "<script> alert('". $value   ."') </script>";
                 $excel->getActiveSheet()->setCellValue($letter[$j].$i, strval($value));
                 $j++;
             }
