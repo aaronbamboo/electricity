@@ -20,7 +20,7 @@ class ExcelTool
             return;
         }
 
-        echo "<script> alert('". print_r($data)   ."') </script>";
+        //echo "<script> alert('". print_r($data)   ."') </script>";
 
         //创建对象
         $excel = new PHPExcel();
@@ -46,7 +46,7 @@ class ExcelTool
             $j = 0;
             foreach ($data[$i - 2] as $key => $value) {
 
-                $excel->getActiveSheet()->setCellValue($letter[$j].$i, strval($value));
+                $excel->getActiveSheet()->setCellValue($letter[$j].$i, $value);
                 $j++;
             }
         }

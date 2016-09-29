@@ -19,6 +19,7 @@ if (!empty($_POST)) {
         $excelTool = new ExcelTool();
         $siteName = htmlspecialchars($_POST['site_name']);
         $sites = $siteService->getSiteByName($siteName);
+        echo "<script> alert('". count($sites) . ":" . count($sites, 1) ."') </script>";
         try{
             $excelTool->outputSiteExcel($sites);
         } catch (Exception $ex) {
