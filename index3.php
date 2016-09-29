@@ -18,7 +18,7 @@ if (!empty($_POST)) {
     } elseif (htmlspecialchars($_POST['actionType']) == 'output_site') {
         $excelTool = new ExcelTool();
         $datas = null;
-        $excelTool->outputExcel(datas);
+        $excelTool->outputExcel($datas);
     }
     elseif (htmlspecialchars($_POST['actionType']) == 'update_site') {
         //echo "<script> alert('". htmlspecialchars($_POST['input_dc_id']) ."') </script>";
