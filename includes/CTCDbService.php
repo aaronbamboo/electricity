@@ -85,7 +85,7 @@ class SiteService {
 
         $results = $dbServ->query("SELECT * FROM ctc_dcload WHERE site_name like '%"
                 . $siteName . "%'");
-        while ($row = mysqli_fetch_array($results)) {
+        while ($row = mysqli_fetch_array($results, MYSQLI_ASSOC)) {
             $list[] = $row;
         }
         return $list;
