@@ -8,7 +8,6 @@
  * Function: Excel操作类
  */
 require_once 'PHPExcel/Classes/PHPExcel.php';
-require_once '../resources/CTCCodes.php';
 
 class ExcelTool
 {
