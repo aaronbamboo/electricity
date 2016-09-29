@@ -15,11 +15,11 @@ class ExcelTool
     public function outputExcel($datas)
     {
         if(!$datas) {
-
-            echo "<script> alert('". WARN_DATA_IS_NULL . ALERT_STYLE_WARNING ."') </script>";
-            $message = new AlertMessager(WARN_DATA_IS_NULL, ALERT_STYLE_WARNING);
+            throw new Exception(WARN_DATA_IS_NULL);
+            //$message = new AlertMessager(WARN_DATA_IS_NULL, ALERT_STYLE_WARNING);
             return;
         }
+
         //创建对象
         $excel = new PHPExcel();
         //Excel表格式,这里简略写了8列
