@@ -12,9 +12,9 @@ require_once 'PHPExcel/Classes/PHPExcel.php';
 class ExcelTool
 {
 
-    public function outputExcel($datas)
+    public function outputSiteExcel($data)
     {
-        if(!$datas) {
+        if(!$data) {
             throw new Exception(WARN_DATA_IS_NULL);
             //$message = new AlertMessager(WARN_DATA_IS_NULL, ALERT_STYLE_WARNING);
             return;
@@ -22,8 +22,9 @@ class ExcelTool
 
         //创建对象
         $excel = new PHPExcel();
-        //Excel表格式,这里简略写了8列
+        //表头列序号
         $letter = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I');
+
         //表头数组
         $tableheader = array('区域', '基站编号', '基站名称', '共享方', '电表使用方', '移动直流负载', '联通直流负载',
             '电信直流负载', '备注');
@@ -32,12 +33,12 @@ class ExcelTool
             $excel->getActiveSheet()->setCellValue("$letter[$i]1", "$tableheader[$i]");
         }
 
-        $data = array(
-            array('越城', 'SXYC0001', '绍兴越城黄酒博物馆', '移动', '移动','20','0','0',''),
-            array('越城', 'SXYC0002', '绍兴越城中医院', '移动', '移动','20','0','0',''),
-            array('越城', 'SXYC0003', '绍兴越城妇保院', '移动', '移动','20','0','0',''),
-            array('越城', 'SXYC0004', '绍兴越城人民医院', '移动', '移动','20','0','0','')
-        );
+//        $data = array(
+//            array('越城', 'SXYC0001', '绍兴越城黄酒博物馆', '移动', '移动','20','0','0',''),
+//            array('越城', 'SXYC0002', '绍兴越城中医院', '移动', '移动','20','0','0',''),
+//            array('越城', 'SXYC0003', '绍兴越城妇保院', '移动', '移动','20','0','0',''),
+//            array('越城', 'SXYC0004', '绍兴越城人民医院', '移动', '移动','20','0','0','')
+//        );
         //填充表格信息
         for ($i = 2; $i <= count($data) + 1; $i++) {
             $j = 0;

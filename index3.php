@@ -17,9 +17,10 @@ if (!empty($_POST)) {
         $jsonSites = json_encode($sites);
     } elseif (htmlspecialchars($_POST['actionType']) == 'output_site') {
         $excelTool = new ExcelTool();
-        $datas = null;
+        $siteName = htmlspecialchars($_POST['site_name']);
+        $sites = $siteService->getSiteByName($siteName);
         try{
-            $excelTool->outputExcel($datas);
+            $excelTool->outputExcel($sites);
         } catch (Exception $ex) {
             $alertMessage = new AlertMessager($ex->getMessage(), ALERT_STYLE_WARNING);
             $alertMessage->alertMessage();
@@ -46,7 +47,7 @@ if (!empty($_POST)) {
             $alertMessage->alertMessage();
             return;
         }
-//        echo "<script> alert('". $site->getSiteName() . "：" .OPER_SITE_UPDATE_SUCCESS  ."') </script>";
+        echo "<script> alert('". $site->getSiteName() . "：" .OPER_SITE_UPDATE_SUCCESS  ."') </script>";
     } elseif (htmlspecialchars($_POST['actionType']) == 'add_site') {
         //$site = new Site();
 //        $site->setDcId(htmlspecialchars($_POST['input_dc_id']));
@@ -181,7 +182,7 @@ if (!empty($_POST)) {
                     <div class="row-fluid">
                         <form class="form-inline" id="searchForm" method="post" action="index3.php">
                             <div class="input-group">
-                                <input type="text" name = "site_name" class="form-control"  placeholder="<?= TIPS_SITE_INPUT ?>">
+                                <input type="text" name = "site_name" class="form-control" style="behavior:url(#default#savehistory);"  placeholder="<?= TIPS_SITE_INPUT ?>">
                                 <span class="">
                                     <button class="btn btn-default" type="submit">
 <?= BT_UNIVERSE_SEARCH ?>
