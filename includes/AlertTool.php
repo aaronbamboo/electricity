@@ -25,16 +25,16 @@ class AlertMessager {
     public function alertMessage() {
         switch ($this->style) {
             case 1: 
-                echo "<div class = 'alert alert-success pull-right'>". $this->message ."</div>";
+                echo "<div class = 'alert alert-success'>". $this->message ."</div>";
                 break;
             case 2: 
-                echo "<div class = 'alert alert-info pull-right'>". $this->message ."</div>";
+                echo "<div class = 'alert alert-info'>". $this->message ."</div>";
                 break;
             case 3: 
-                echo "<div class = 'alert alert-warning pull-right'>". $this->message ."</div>";
+                echo "<div class = 'alert alert-warning'>". $this->message ."</div>";
                 break;
             case 4: 
-                echo "<div class = 'alert alert-danger pull-right'>". $this->message ."</div>";
+                echo "<div class = 'alert alert-danger'>". $this->message ."</div>";
                 break;
             default: echo "";
         }
