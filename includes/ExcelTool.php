@@ -20,7 +20,7 @@ class ExcelTool
             return;
         }
 
-        echo "<script> alert('". var_dump($data)   ."') </script>";
+        echo "<script> alert('". print_r($data)   ."') </script>";
 
         //创建对象
         $excel = new PHPExcel();
