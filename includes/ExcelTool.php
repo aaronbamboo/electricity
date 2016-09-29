@@ -45,7 +45,7 @@ class ExcelTool
         for ($i = 2; $i <= count($data) + 1; $i++) {
             $j = 0;
             foreach ($data[$i - 2] as $key => $value) {
-                if ($j = 0) {
+                if($j == 0) {
                     $j++;
                     continue;
                 }
