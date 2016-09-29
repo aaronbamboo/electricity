@@ -20,7 +20,7 @@ if (!empty($_POST)) {
         $siteName = htmlspecialchars($_POST['site_name']);
         $sites = $siteService->getSiteByName($siteName);
         try{
-            $excelTool->outputExcel($sites);
+            $excelTool->outputSiteExcel($sites);
         } catch (Exception $ex) {
             $alertMessage = new AlertMessager($ex->getMessage(), ALERT_STYLE_WARNING);
             $alertMessage->alertMessage();
