@@ -45,8 +45,11 @@ class ExcelTool
         for ($i = 2; $i <= count($data) + 1; $i++) {
             $j = 0;
             foreach ($data[$i - 2] as $key => $value) {
-
-                $excel->getActiveSheet()->setCellValue($letter[$j].$i, $value);
+                if ($j = 0) {
+                    $j++;
+                    continue;
+                }
+                $excel->getActiveSheet()->setCellValue($letter[$j-1].$i, $value);
                 $j++;
             }
         }
