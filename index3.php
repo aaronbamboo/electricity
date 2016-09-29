@@ -183,7 +183,8 @@ if (!empty($_POST)) {
                     <div class="row-fluid">
                         <form class="form-inline" id="searchForm" method="post" action="index3.php">
                             <div class="input-group">
-                                <input type="text" name = "site_name" class="form-control" style="behavior:url(#default#savehistory);"  placeholder="<?= TIPS_SITE_INPUT ?>">
+                                <input type="text" name = "site_name" class="form-control" placeholder="<?= TIPS_SITE_INPUT ?>"
+                                value="<?php echo @$_POST["site_name"];?>">
                                 <span class="">
                                     <button id="bt_search_site" class="btn btn-default" type="button">
 <?= BT_UNIVERSE_SEARCH ?>
