@@ -185,7 +185,7 @@ if (!empty($_POST)) {
                             <div class="input-group">
                                 <input type="text" name = "site_name" class="form-control" style="behavior:url(#default#savehistory);"  placeholder="<?= TIPS_SITE_INPUT ?>">
                                 <span class="">
-                                    <button class="btn btn-default" type="submit">
+                                    <button id="bt_search_site" class="btn btn-default" type="button">
 <?= BT_UNIVERSE_SEARCH ?>
                                     </button>
                                 </span>
@@ -494,6 +494,7 @@ if (!empty($_POST)) {
         var $deleleButton = $('#bt_delete_site');
         var $updateSubButton = $('#bt_update_submit');
         var $addSubButton = $('#bt_add_submit');
+        var $searchSubButton = $('#bt_search_site');
 
         var $outputButton = $('#bt_output_site');
 
@@ -547,6 +548,11 @@ if (!empty($_POST)) {
 
             $outputButton.click(function () {
                 $('#actionType').val('output_site');
+                $('#searchForm').submit();
+            });
+
+            $searchSubButton.click(function () {
+                $('#actionType').val('search_site');
                 $('#searchForm').submit();
             });
         });
