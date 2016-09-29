@@ -8,13 +8,17 @@
  * Function: Excel操作类
  */
 require_once 'PHPExcel/Classes/PHPExcel.php';
+require_once '../resources/CTCCodes.php';
 
 class ExcelTool
 {
 
-    public function outputExcel()
+    public function outputExcel($datas)
     {
-
+        if(!$datas) {
+            $message = new AlertMessager(WARN_DATA_IS_NULL, ALERT_STYLE_WARNING);
+            return;
+        }
         //创建对象
         $excel = new PHPExcel();
         //Excel表格式,这里简略写了8列

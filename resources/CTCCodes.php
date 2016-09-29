@@ -108,3 +108,12 @@ define('TIPS_PLEASE_SELECT_SITE', '请选择基站');
 define('OPER_SITE_UPDATE_SUCCESS', '基站信息更新成功');
 define('OPER_SITE_ADD_SUCCESS', '基站添加成功');
 define('OPER_SITE_DELETE_SUCCESS', '基站删除成功');
+
+//弹出框样式
+define('ALERT_STYLE_SUCCESS', 1);
+define('ALERT_STYLE_INFO', 2);
+define('ALERT_STYLE_WARNING', 3);
+define('ALERT_STYLE_DANGER', 4);
+
+//错误信息
+define('WARN_DATA_IS_NULL', '数据为空');

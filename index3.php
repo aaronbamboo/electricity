@@ -17,7 +17,8 @@ if (!empty($_POST)) {
         $jsonSites = json_encode($sites);
     } elseif (htmlspecialchars($_POST['actionType']) == 'output_site') {
         $excelTool = new ExcelTool();
-        $excelTool->outputExcel();
+        $datas = null;
+        $excelTool->outputExcel(datas);
     }
     elseif (htmlspecialchars($_POST['actionType']) == 'update_site') {
         //echo "<script> alert('". htmlspecialchars($_POST['input_dc_id']) ."') </script>";
