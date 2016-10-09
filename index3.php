@@ -204,7 +204,8 @@ if (!empty($_POST)) {
                     </div>
                     <div class="row-fluid">
                         <table class="table table-bordered" id="site-table" data-toggle="table" data-url="data.json"
-                               data-click-to-select="true" data-pagination="true" >
+                               data-click-to-select="true" data-pagination="true" data-page-list="[5, 10, 50, 100, ALL]"
+                               data-side-pagination="client">
                             <thead>
                                 <tr>
                                     <th data-radio="true"></th>

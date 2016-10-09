@@ -7,11 +7,18 @@
  */
 
 // 数据库配置参数
-define('DB_DSN', 'mysql:host=10.10.32.51;dbname=Kcdryfz2Y9xuCDnL');
+/*define('DB_DSN', 'mysql:host=10.10.32.51;dbname=Kcdryfz2Y9xuCDnL');
 define('DB_USER', 'u6rZLMYuyIeaoOns');
 define('DB_PWD', 'p1ovrzIXk6MWbeEJ4');
 define('DB_NAME', 'Kcdryfz2Y9xuCDnL');
-define('DB_HOST', '10.10.32.51');
+define('DB_HOST', '10.10.32.51');*/
+
+// 本地数据库配置参数
+define('DB_DSN', 'mysql:host=127.0.0.1;dbname=elec');
+define('DB_USER', 'root');
+define('DB_PWD', '116596');
+define('DB_NAME', 'elec');
+define('DB_HOST', '127.0.0.1');
 
 //县市区域
 define('QY_YUECHENGQU', '越城');
